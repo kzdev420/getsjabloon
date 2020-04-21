@@ -1,0 +1,17 @@
+<% content_for :page_title, "#{@policy.title} - #{Rails.configuration.application_name}" %>
+<% content_for :page_description, "" %>
+
+<article class="content-container mt-16">
+  <header class="text-center">
+    <p class="content-meta">
+      <time datetime=<%= @policy.created_at.to_s(:iso8601) %>><%= @policy.created_at.strftime('%e %B %Y') %></time>
+    </p>
+
+    <h1 class="text-3xl"><%= @policy.title %></h1>
+  </header>
+
+  <div class="content-body content-body--style-first-paragraph">
+    <%= simple_format @policy.content %>
+  </div>
+</article>
+

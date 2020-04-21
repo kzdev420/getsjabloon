@@ -1,0 +1,58 @@
+<% content_for :page_title, "Billing" %>
+
+<div class="mt-16 max-w-2xl mx-auto">
+  <h1 class="text-3xl mb-4">Pricing</h1>
+  <p class="mb-8 text-lg text-gray-700">Some more general info about the value of this product. Money-back guarantee, free x-day trial, etc.</p>
+
+  <div data-controller="sjabloon--plan-switch" data-sjabloon--plan-switch-interval="month">
+    <%= tag.div class: "flex justify-center mb-6" do %>
+      <button
+        data-target="sjabloon--plan-switch.select"
+        data-sjabloon--plan-switch-target-value="month"
+        data-action="sjabloon--plan-switch#toggle"
+        class="btn bg-gray-300 bg-blue-400 text-sm uppercase tracking-wide rounded-r-none">
+        Monthly
+      </button>
+
+      <button
+        data-target="sjabloon--plan-switch.select"
+        data-sjabloon--plan-switch-target-value="year"
+        data-action="sjabloon--plan-switch#toggle"
+        class="btn bg-gray-300 text-sm uppercase tracking-wide rounded-l-none">
+        Year
+      </button>
+    <% end if !@plans.empty? %>
+
+    <div class="flex mb-16">
+      <% if @plans.each do |plan| %>
+        <div class="flex flex-col h-full w-1/2 mr-4 p-4 shadow-lg rounded" >
+          <header class="py-8 text-center">
+            <h2 class="mb-0 text-sm font-bold uppercase tracking-wide text-gray-700"><%= plan.nickname %></h2>
+
+            <h3 class="flex items-center justify-center">
+              <span class="inline-block mr-2 text-lg font-medium">$</span>
+              <span class="text-5xl font-extrabold" data-target="sjabloon--plan-switch.amount" data-plan-switch-month-amount="<%= plan.price %>" data-plan-switch-year-amount="<%= annual_price_for(plan.id) %>"><%= plan.price %></span>
+              <span class="inline-block ml-2 text-base font-bold text-gray-700" data-target="sjabloon--plan-switch.interval"><%= plan.interval %></span>
+            </h3>
+          </header>
+          <ul class="list-reset">
+            <% plan.features.each do |key, value| %>
+              <li class="flex items-center mb-2 text-xl text-gray-700">
+                <%= embedded_svg("checkmark.svg", class: "inline-block flex-shrink-0 w-8 h-8 mr-4 p-2 bg-green-200 text-green-700 fill-current rounded-full") %>
+                <%= plan_item(key, value) %>
+              </li>
+            <% end %>
+          </ul>
+          <div class="mt-4">
+            <%= plan_button(plan.id) %>
+
+            <%= tag.span "Starts with a #{plan.trial_period_days}-day trial period", class: "block mt-1 text-sm text-center text-gray-700" if plan.has_trial_period? %>
+          </div>
+        </div>
+      <% end.empty? %>
+        <%= tag.code "You can fetch your subscription plans from Stripe by running `rake stripe:fetch:plans` from the console. Be sure you have your Stripe credentials added and your products + pricing plans set up in your Stripe account." if Rails.env.development? %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

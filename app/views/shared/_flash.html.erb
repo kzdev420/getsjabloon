@@ -1,0 +1,8 @@
+<% if !flash.empty? %>
+  <%= content_tag :ul, nil, class: "flash-wrapper animate flashAnimation" do %>
+    <% flash.each do |key, message| %>
+      <li class="flash"><%= message %></li>
+    <% end %>
+  <% end %>
+<% end %>
+

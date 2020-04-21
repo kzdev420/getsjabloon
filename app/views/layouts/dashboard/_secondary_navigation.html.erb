@@ -1,0 +1,33 @@
+<div class="dashboard-nav-secondary">
+  <%= form_with url: "#", class: "w-1/2 max-w-md" do |form| %>
+    <span class="relative">
+      <svg class="absolute inset-y-0 w-5 h-5 ml-2 text-gray-500 fill-current" viewBox="0 0 20 20"><path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/></svg>
+
+      <%= form.text_field :search, class: "input input--dark pl-8", placeholder: "What are you looking for?" %>
+    </span>
+  <% end %>
+
+  <div class="dashboard-nav-secondary__account">
+
+    <div class="dropdown text-gray-400 hover:text-gray-500"
+      data-controller="sjabloon--dropdown">
+      <button class="dropdown__toggle"
+        data-action="click->sjabloon--dropdown#toggle click@window->sjabloon--dropdown#hide">
+        <%= current_user.first_name %>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="dropdown__icon" data-target="sjabloon--dropdown.icon"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+      </button>
+
+      <div data-target="sjabloon--dropdown.menu" class="dropdown__menu hidden">
+        <div class="dropdown__items">
+          <%= link_to "Notifications",  root_path, class: "dropdown__item" %>
+
+          <%= link_to "Edit account",  edit_user_registration_path, class: "dropdown__item" %>
+
+          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown__item" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

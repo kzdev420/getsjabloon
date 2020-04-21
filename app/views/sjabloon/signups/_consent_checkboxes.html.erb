@@ -1,0 +1,18 @@
+<div class="field">
+  <%= tag.div class: "flex items-center" do %>
+    <%= form.check_box :accepted_terms, class: "input-checkbox" %>
+
+    <%= form.label :accepted_terms, class: "mb-0" do %>
+      I agree with the <%= link_to 'Terms of Service', policy_path('terms') %>
+    <% end %>
+  <% end if current_terms_available? %>
+
+  <%= tag.div class: "flex items-center" do %>
+    <%= form.check_box :accepted_privacy, class: "input-checkbox" %>
+
+    <%= form.label :accepted_privacy, class: "mb-0" do %>
+      I agree with the <%= link_to 'Privacy Policy', policy_path('privacy') %>
+    <% end %>
+  <% end if current_privacy_policy_available? %>
+</div>
+

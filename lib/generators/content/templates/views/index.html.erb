@@ -1,0 +1,14 @@
+      <div class="content-container">
+  <h1 class="content-title"><%= plural_class_name %></h1>
+
+  <%%= link_to '+ Add a <%= singular_name %>', new_<%= singular_name %>_path, class: "inline-block text-sm" if current_user&.admin? %>
+
+  <div class="mt-8">
+    <%% if @<%= plural_name %>.each do |<%= singular_name%>| %>
+      <%%= render "<%= plural_name %>/<%= singular_name %>", resource: <%= singular_name %> %>
+    <%% end.empty? %>
+      <p>No <%= plural_name %> yet.</p>
+    <%% end %>
+  </div>
+</div>
+

@@ -1,0 +1,14 @@
+    Description:
+  Creates a boilerplate file for a new Form Object. Pass it a name,
+  either CamelCase or snake_case. Optional: a list of methods as arguments.
+  To create a Form object within a module, pass it as either `--module NAME`
+  or `--module=NAME`.
+  The file lives, by community-convention, in `app/forms`, or in
+  `app/forms/{module}` if module is present.
+
+Example:
+  `rails generate form Signup name email team_name`
+
+  This will create:
+    app/forms/signup_form.rb (with the `name`, `email` and team_name as string attributes)
+

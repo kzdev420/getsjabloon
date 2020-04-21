@@ -1,0 +1,22 @@
+<h2 class="flex items-center mb-2 text-lg font-normal text-gray-800">Payment history</h2>
+
+<ul class="list-reset">
+  <% if @charges.each do |charge| %>
+  <li class="flex items-center pt-3 pb-3 border-b-2 border-gray-400">
+    <datetime class="w-1/5">
+      <%= charge.created_at.strftime("%d %B %Y") %>
+    </datetime>
+    <p class="w-2/5 text-center">
+      <%= charge.charged_to %>
+    </p>
+    <p class="w-1/5 text-right">
+      <%= amount(charge.id) %>
+      <%= amount_refunded(charge.id) %>
+    </p>
+    <%= link_to "Receipt", charge_path(charge.processor_id, format: :pdf), class: "w-1/5 text-right" %>
+  </li>
+  <% end.empty? %>
+    No charges currently available.
+  <% end %>
+</ul>
+

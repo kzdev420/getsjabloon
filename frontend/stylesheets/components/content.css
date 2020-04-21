@@ -1,0 +1,109 @@
+/*
+ The css here is for the Sjabloon Content Generator,
+ eg. `rails generate content Post`, run `rails generate content --help` for usage and help
+*/
+
+.content-container {
+  @apply max-w-3xl mx-auto px-2;
+}
+
+.content-title {
+  @apply mt-4 text-5xl leading-tight font-black text-gray-900;
+}
+
+.content-meta {
+  @apply text-lg leading-tight text-gray-600;
+}
+
+.content-author {
+  @apply flex items-center max-w-lg mx-auto mt-8;
+}
+
+.content-author__avatar {
+  @apply inline-block w-12 h-12;
+  @apply rounded-full;
+}
+
+.content-author__name {
+  @apply text-lg leading-tight font-bold text-gray-800;
+}
+
+.content-author__bio {
+  @apply text-gray-600;
+}
+
+.content-body {
+  @apply mt-8;
+  @apply text-lg text-gray-800;
+
+  p, ul, ol { /* [1] */
+     @apply mt-8;
+  }
+
+  h2 {
+    @apply mt-8 -mb-6;
+    @apply text-2xl leading-tight font-extrabold;
+  }
+
+  h3 {
+    @apply mt-8 -mb-8;
+    @apply text-lg font-bold;
+  }
+
+  ul {
+    @apply list-disc;
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  ul,
+  ol {
+    @apply pl-5;
+  }
+
+  blockquote {
+    @apply max-w-2xl mx-auto px-6;
+    @apply text-xl leading-relaxed text-center text-gray-600;
+  }
+
+  pre,
+  code {
+    @apply px-2 py-1;
+    @apply text-sm font-semibold text-gray-100;
+    @apply bg-gray-900 rounded;
+  }
+
+  pre {
+    @apply block mt-8 overflow-x-auto;
+  }
+}
+
+.content-body--style-first-paragraph p:first-of-type {
+  @apply text-xl leading-relaxed text-gray-700;
+}
+
+.content-body--dropcap-first-paragraph {
+  > p:first-of-type:first-letter {
+    @apply mt-2 pr-3;
+    @apply float-left;
+    @apply text-5xl leading-none font-black;
+  }
+}
+
+.content-body--dropcap-second-paragraph {
+  > p:nth-of-type(2):first-letter {
+    @apply mt-2 pr-3;
+    @apply float-left;
+    @apply text-5xl leading-none font-black;
+  }
+}
+
+/*
+ [1] Normally it's not advised to use "catch-all" (global) selectors (eg. `div > p`),
+ but here they are clearly capsulated within `.content-body`.
+ Also the exact contents of each body section is uncertain.
+*/
+
+

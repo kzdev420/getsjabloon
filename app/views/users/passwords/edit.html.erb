@@ -1,0 +1,27 @@
+<div class="mt-4 max-w-xl mx-auto">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "p-4" }) do |f| %>
+    <%= devise_error_messages!(resource: resource) %>
+
+    <h1 class="mt-2 mb-6 text-xl">Forgot your password?</h1>
+
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="field">
+      <%= f.label :password, "New password" %>
+      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password_confirmation, "Confirm new password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "input" %>
+    </div>
+
+    <div class="buttons">
+      <%= f.submit "Change my password", class: "btn btn--primary" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>
+
+

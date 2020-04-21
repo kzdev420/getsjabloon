@@ -1,0 +1,78 @@
+<div class="dashboard-nav">
+  <%= link_to Rails.configuration.application_name, root_path, class: "dashboard-nav__logo" %>
+
+  <ul class="dashboard-nav-items"
+      data-controller="sjabloon--accordion"
+      data-sjabloon--accordion-active-class="dashboard-subnav-items--active"
+      data-sjabloon--accordion-toggle-icon-class="dashboard-nav-link__icon--toggled">
+    <li class="dashboard-nav-item">
+      <%= link_to "Dashboard", root_path, class: "dashboard-nav-link dashboard-nav-link--active" %>
+    </li>
+
+    <li class="dashboard-nav-item">
+      <button
+        class="dashboard-nav-link dashboard-nav-link--toggle"
+        data-target="sjabloon--accordion.pointer"
+        data-action="click->sjabloon--accordion#toggle"
+      >
+        Users
+
+        <svg viewBox="0 0 20 20" class="dashboard-nav-link__icon" data-target="sjabloon--accordion.icon"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+      </button>
+
+      <ul class="dashboard-subnav-items"
+        data-target="sjabloon--accordion.content">
+        <li class="dashboard-subnav-item">
+          <%= link_to "Active users", root_path, class: "dashboard-subnav-link" %>
+        </li>
+
+        <li class="dashboard-subnav-item">
+          <%= link_to "Invited users", root_path, class: "dashboard-subnav-link" %>
+        </li>
+      </ul>
+    </li>
+
+    <li class="dashboard-nav-item">
+      <%= link_to root_path, class: "dashboard-nav-link flex items-center justify-between" do %>
+        Tasks
+
+        <span class="pill pill--tertiary ml-2">5</span>
+      <% end %>
+    </li>
+
+    <li class="dashboard-nav-item">
+      <%= link_to "Teams", root_path, class: "dashboard-nav-link" %>
+    </li>
+
+    <li class="dashboard-nav-item">
+      <button
+        class="dashboard-nav-link dashboard-nav-link--toggle"
+        data-target="sjabloon--accordion.pointer"
+        data-action="click->sjabloon--accordion#toggle"
+      >
+        Settings
+
+        <svg viewBox="0 0 20 20" class="dashboard-nav-link__icon" data-target="sjabloon--accordion.icon"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+      </button>
+
+      <ul class="dashboard-subnav-items" data-target="sjabloon--accordion.content">
+        <li class="dashboard-subnav-item">
+          <%= link_to "Billing", billing_path, class: "dashboard-subnav-link" %>
+        </li>
+
+        <li class="dashboard-subnav-item">
+          <%= link_to "Roles", root_path, class: "dashboard-subnav-link" %>
+        </li>
+
+        <li class="dashboard-subnav-item">
+          <%= link_to "Integrations", root_path, class: "dashboard-subnav-link" %>
+        </li>
+
+        <li class="dashboard-subnav-item">
+          <%= link_to "History", root_path, class: "dashboard-subnav-link" %>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+

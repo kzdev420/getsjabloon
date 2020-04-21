@@ -1,0 +1,39 @@
+  <% content_for :page_title, "Log in. Sjabloon." %>
+<% content_for :page_description, "Log in to your Sjabloon account to create your next product." %>
+
+<div class="mt-4 max-w-lg mx-auto">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "p-4" }) do |f| %>
+    <%= devise_error_messages!(resource: resource) %>
+
+    <h1 class="mt-2 mb-6 text-xl font-bold">Log in</h1>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autocomplete: "email", class: "input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password, class: 'flex justify-between' do %>
+        Password
+        <%= link_to "Forgot your password?", new_password_path(resource_name), class: "text-gray-600" %>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="field flex items-center">
+        <%= f.check_box :remember_me, class: "tgl tgl-light" %>
+        <label class="tgl-btn" for="user_remember_me"></label>
+        <label for="user_remember_me" class="ml-2">remember me</label>
+      </div>
+    <% end -%>
+
+    <div class="buttons">
+      <%= f.submit "Log in", class: "btn btn--primary" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>
+
+

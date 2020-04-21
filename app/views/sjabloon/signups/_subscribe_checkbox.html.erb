@@ -1,0 +1,5 @@
+<%= tag.div class: "field flex items-center" do %>
+  <%= form.check_box :subscribe_to_newsletter, checked: false, class: "input-checkbox" %>
+  <%= form.label :subscribe_to_newsletter, "Get product updates, news and tips", class: "mb-0" %>
+<% end if AppConfig.email_marketing.present? %>
+

@@ -1,0 +1,43 @@
+.tgl {
+  @apply hidden;
+}
+
+.tgl + .tgl-btn {
+  @apply relative inline-block w-12 h-6;
+  @apply outline-none cursor-pointer select-none;
+}
+
+.tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+  content: "";
+  @apply block relative w-1/2 h-full;
+}
+
+.tgl + .tgl-btn:after {
+  @apply left-0;
+}
+
+.tgl + .tgl-btn:before {
+  @apply hidden;
+}
+
+.tgl:checked + .tgl-btn:after {
+  left: 50%;
+}
+
+.tgl-light + .tgl-btn {
+  padding: 2px;
+  @apply bg-gray-300;
+  @apply rounded-full;
+  transition: all .4s ease;
+}
+
+.tgl-light + .tgl-btn:after {
+  @apply rounded-full;
+  @apply bg-white;
+  transition: all .2s ease;
+}
+
+.tgl-light:checked + .tgl-btn {
+  background: var(--brandColor);
+}
+

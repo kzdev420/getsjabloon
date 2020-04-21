@@ -1,0 +1,19 @@
+  <%%= form_with(model: <%= model_resource_name %>, local: true, class: "card card--light p-4") do |form| %>
+  <%%= render "shared/flash", flash: <%= singular_table_name %>.errors %>
+
+<% attributes.each do |attribute| -%>
+  <div class="field">
+    <%%= form.label :<%= attribute.column_name %> %>
+    <%%= form.<%= attribute.field_type %> :<%= attribute.column_name %>, class: "input" %>
+  </div>
+<% end -%>
+
+  <div class="field flex justify-between items-center mb-0">
+    <%%= form.submit class: "btn btn--primary" %>
+
+    <%% if <%= model_resource_name %>.persisted? %>
+      <%%= link_to "Destroy", <%= model_resource_name %>, method: :delete, class: "text-red-600", data: { confirm: "Are you sure?" } %>
+    <%% end %>
+  </div>
+<%% end %>
+

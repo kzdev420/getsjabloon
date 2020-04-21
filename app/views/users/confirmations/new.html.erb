@@ -1,0 +1,20 @@
+  <div class="mt-4 max-w-xl mx-auto">
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: "p-4" }) do |f| %>
+    <%= devise_error_messages!(resource: resource) %>
+
+    <h1 class="mt-2 mb-6 text-xl">Resend confirmation instructions</h1>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "input" %>
+    </div>
+
+    <div class="buttons">
+      <%= f.submit "Resend", class: "btn btn--primary" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
+</div>
+
+

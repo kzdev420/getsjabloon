@@ -1,0 +1,17 @@
+/* Application.css is based off the ITCSS methodology by Harry Roberts. */
+/* It starts with low-specifity selectors to high-specifity selectors. */
+/* The naming convention used is BEM. */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+
+@import "settings";
+@import "base";
+@import "objects";
+@import "animations";
+@import "components";
+
+
+@import "tailwindcss/utilities";
+

@@ -1,0 +1,17 @@
+  <div class="mt-16 max-w-xl mx-auto">
+  <header class="flex justify-between">
+    <h1 class="text-3xl mb-4">Show <%= singular_table_name %></h1>
+
+    <div>
+      <%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'btn btn--primary' %>
+    </div>
+  </header>
+
+  <%- attributes.each do |attribute| -%>
+    <div class="flex">
+      <h2 class="w-full sm:w-1/4"><%= attribute.human_name %>:</h2>
+      <p class="w-full sm:w-3/4"><%%= @<%= singular_table_name %>.<%= attribute.name %> %></p>
+    </div>
+  <%- end -%>
+</div>
+

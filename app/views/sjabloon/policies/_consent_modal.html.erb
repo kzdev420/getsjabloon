@@ -1,0 +1,21 @@
+<%= tag.div class: "modal-wrapper",
+  data: {
+    controller: "sjabloon--modal",
+    action: "ajax:success->sjabloon--modal#close",
+    target: "sjabloon--modal.container",
+  } do %>
+  <div class="w-full max-w-xl px-4 py-8 text-center bg-white border border-gray-200 rounded shadow-lg">
+    <h3 class="text-2xl font-semibold leading-tight text-gray-600">Policy updates</h3>
+
+    <p class="mt-8 text-gray-700">We've updated our <%= link_to_current_updated_policies_for_them %>. Please take a few moments to read them.</p>
+
+    <p class="mt-4 text-gray-700">Once you read the updated <%= updated_policies_for_them %> and agree with them, please click “<b>Accept</b>”. For any questions, <%= link_to 'contact us', contact_path %>.</p>
+
+    <%= form_with(url: consents_path, method: :post, class: "mt-4") do |form| %>
+      <%= form.hidden_field :policy_ids, value: current_user.needs_consent_for_mandatory_policies.pluck(:id) %>
+
+      <%= form.submit "Accept", class: "btn btn--primary mt-8" %>
+    <% end %>
+  </div>
+<% end if validate_consent_to_policies? %>
+

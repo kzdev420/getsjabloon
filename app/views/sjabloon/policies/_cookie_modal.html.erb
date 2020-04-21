@@ -1,0 +1,21 @@
+<%= tag.div class: 'flex flex-row justify-center fixed bottom-0 left-0 w-full mb-4 z-20 hidden',
+  data: {
+    controller: 'sjabloon--modal',
+    target: 'sjabloon--modal.container',
+    sjabloon__modal_cookie_name: "#{Rails.configuration.application_name.parameterize}_accepted_cookie_policy",
+    sjabloon__modal_store_cookie_for_days: 365,
+    sjabloon__modal_cookie_on_close: true,
+    sjabloon__modal_stop_scroll: false,
+    sjabloon__modal_interval_time_in_seconds: "5",
+  } do %>
+  <div class="flex items-center px-4 py-2 text-sm text-gray-700 bg-white shadow rounded">
+    <p>
+      By using <%= Rails.configuration.application_name %> you agree to our <%= link_to "cookie policy", policy_path("cookies") %>.
+    </p>
+
+    <button data-action="click->sjabloon--modal#close" class="btn btn--primary flex-shrink-0 px-2 py-1 ml-4">
+      Accept
+    </button>
+  </div>
+<% end if show_cookie_policy_modal %>
+

@@ -1,0 +1,59 @@
+.btn {
+  @apply inline-block px-8 py-3;
+  @apply font-medium leading-none;
+  @apply border-2 border-transparent rounded-full;
+  @apply cursor-pointer;
+}
+
+.btn--outline {
+  @apply bg-transparent;
+  color: var(--textColorInverted);
+  border-color: var(--textColorInverted);
+
+  &:hover {
+    @apply opacity-75;
+  }
+}
+
+.btn--primary {
+  @apply text-white;
+  background-color: var(--brandColor);
+
+  &:hover {
+    background-color: var(--brandColorDark);
+  }
+}
+
+.btn--primary-outline {
+  @apply bg-transparent;
+  color: var(--brandColor);
+  border-color: var(--brandColor);
+
+  &:hover {
+    color: var(--brandColorDark);
+    border-color: currentColor;
+  }
+}
+
+.btn--secondary {
+  @apply text-white;
+  background-color: var(--secondaryBrandColor);
+
+  &:hover {
+    background-color: var(--secondaryBrandColorDark);
+  }
+}
+
+.btn--secondary-outline {
+  @apply bg-transparent;
+  color: var(--secondaryBrandColor);
+  border-color: var(--secondaryBrandColor);
+
+  &:hover {
+    color: var(--secondaryBrandColorDark);
+    border-color: currentColor;
+  }
+}
+
+
+

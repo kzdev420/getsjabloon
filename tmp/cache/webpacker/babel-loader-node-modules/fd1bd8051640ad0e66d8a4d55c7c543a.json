@@ -1,0 +1,1 @@
+{"ast":null,"code":"/* eslint no-console:0 */\nrequire(\"stylesheets/emails.scss\");","map":{"version":3,"sources":["/home/good-dev/Documents/Work/heytasker4/frontend/packs/emails.js"],"names":["require"],"mappings":"AAAA;AAEAA,OAAO,CAAC,yBAAD,CAAP","sourcesContent":["/* eslint no-console:0 */\n\nrequire(\"stylesheets/emails.scss\")\n"]},"metadata":{},"sourceType":"module"}

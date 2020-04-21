@@ -1,0 +1,38 @@
+<h2 class="flex items-center mb-2 text-lg font-normal text-grey-700">Update your card</h2>
+<p class="mt-2 mb-4">Card expired? Or got a new card? You can easily update it.</p>
+
+<%= form_with(url: card_path, method: :put, local: true, class: "",
+  data: {
+    controller: "sjabloon--stripe",
+    target: "sjabloon--stripe.form",
+    action: "sjabloon--stripe#submit",
+    sjabloon__stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key),
+    sjabloon__stripe_style: '{
+      "base": {
+        "fontFamiliy": "system-ui",
+        "fontSize": "16px",
+        "color": "#3d4852",
+        "fontSmoothing": "antialiased",
+        "::placeholder": {
+          "color": "#4e5c69"
+        },
+        "invalid": {
+          "color": "#e5424d",
+          ":focus": {
+            "color": "#303238"
+          }
+        }
+      }
+    }'
+  }) do |form| %>
+  <div class="field">
+    <label for="card-element">Credit or debit card</label>
+    <div data-target="sjabloon--stripe.card" data-action="change->sjabloon--stripe#change" class="input"> </div>
+    <div data-target="sjabloon--stripe.errors" role="alert"></div>
+  </div>
+
+  <div class="field">
+    <%= form.button "Update card", class: "btn btn--primary", data: { disable_with: "Processing…" } %>
+  </div>
+<% end %>
+

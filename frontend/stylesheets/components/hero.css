@@ -1,0 +1,26 @@
+.hero {
+  @apply px-2 pt-20 pb-12;
+  @apply leading-tight text-white text-center;
+
+  @screen sm {
+    @apply pt-32 pb-24;
+  }
+}
+
+.hero__heading {
+  @apply text-3xl font-bold;
+
+  @screen sm {
+    @apply text-5xl;
+  }
+}
+
+.hero__subheading {
+  @apply mt-2;
+  @apply text-xl text-red-100;
+
+  @screen sm {
+    @apply text-3xl;
+  }
+}
+

@@ -1,0 +1,36 @@
+    Description:
+  Scaffold an entire content resource (eg. blog, articles, knowledge base, etc.)
+  with an author, tags and markdown. Adds models, migrations, controllers, views and Css.
+
+Usage:
+  Pass the name of the model, either CamelCase or snake_case as the first argument
+  along with an optional list of attributes (title, body, slug come by default).
+  All default controller actions are created, where `new`, `create`, `edit`,
+  `update` and `destroy` are only accessible to an User with `admin` set to true.
+
+  Attribute pairs are column_name:sql_type arguments specifying the
+  model's attributes. Timestamps are added by default, so you don't have to
+  specify them by hand as 'created_at:datetime updated_at:datetime'.
+
+Examples:
+  `rails generate content Post`
+
+    Will create a scaffold with all default controller CRUD actions,
+    tags (`Post has_many :tags`), an author (`Post belongs_to :author,
+    class_name: 'User'`), markdown (for the body) and views with Css added.
+
+  `rails generate content Post --skip-tags`
+
+    Will create a scaffold with all default controller CRUD actions,
+    without added tags.
+
+  `rails generate content Post --skip-author`
+
+    Will create a scaffold with all default controller CRUD actions,
+    without an author.
+
+  `rails generate content Post --skip-markdown`
+
+    Will create a scaffold with all default controller CRUD actions,
+    without an markdown (using kramdown) added.
+

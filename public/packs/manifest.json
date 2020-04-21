@@ -1,0 +1,40 @@
+{
+  "application.css": "/packs/css/application-46ae3481.css",
+  "application.css.map": "/packs/css/application-46ae3481.css.map",
+  "application.js": "/packs/js/application-634b51d9baf14b1f4b67.js",
+  "application.js.map": "/packs/js/application-634b51d9baf14b1f4b67.js.map",
+  "emails.css": "/packs/css/emails-5a7096f0.css",
+  "emails.css.map": "/packs/css/emails-5a7096f0.css.map",
+  "emails.js": "/packs/js/emails-db6a0627c6f8a5488b86.js",
+  "emails.js.map": "/packs/js/emails-db6a0627c6f8a5488b86.js.map",
+  "entrypoints": {
+    "application": {
+      "css": [
+        "/packs/css/application-46ae3481.css"
+      ],
+      "js": [
+        "/packs/js/application-634b51d9baf14b1f4b67.js"
+      ],
+      "css.map": [
+        "/packs/css/application-46ae3481.css.map"
+      ],
+      "js.map": [
+        "/packs/js/application-634b51d9baf14b1f4b67.js.map"
+      ]
+    },
+    "emails": {
+      "css": [
+        "/packs/css/emails-5a7096f0.css"
+      ],
+      "js": [
+        "/packs/js/emails-db6a0627c6f8a5488b86.js"
+      ],
+      "css.map": [
+        "/packs/css/emails-5a7096f0.css.map"
+      ],
+      "js.map": [
+        "/packs/js/emails-db6a0627c6f8a5488b86.js.map"
+      ]
+    }
+  }
+}

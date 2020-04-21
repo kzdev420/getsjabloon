@@ -1,0 +1,18 @@
+.pill {
+  @apply py-1 px-3;
+  @apply text-xs leading-none font-bold uppercase tracking-wider;
+  @apply rounded-full;
+}
+
+.pill--primary {
+  @apply bg-blue-200 text-blue-800;
+}
+
+.pill--secondary {
+  @apply bg-gray-300 text-gray-800;
+}
+
+.pill--tertiary {
+  @apply bg-green-200 text-green-800;
+}
+

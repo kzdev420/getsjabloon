@@ -1,0 +1,239 @@
+/*
+ Check settings.css where some easings are defined as root variables
+*/
+
+.animate {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes flashAnimation {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0) scale(.86);
+  }
+
+  3%, 93% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.flashAnimation {
+  animation: flashAnimation 10s var(--ease-in-out-circ);
+  animation-fill-mode: both;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes flashHideAnimation {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  25% {
+    opacity: .8;
+    transform: translate3d(0, -108%, 0) scale(1.05);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+.flashHideAnimation {
+  animation: flashHideAnimation 1s var(--ease-in-out-circ);
+  animation-fill-mode: both;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, -4px, 0);
+  }
+}
+
+.slideUp {
+  animation: slideUp 1s var(--ease-in-out-circ) both;
+}
+
+.slideUpOnHover {
+  &:hover {
+    animation: slideUp 1s var(--ease-in-out-circ) both;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 4px, 0);
+  }
+}
+
+.slideDown {
+  animation: slideDown 1s var(--ease-in-out-circ) both;
+}
+
+.slideDownOnHover {
+  &:hover {
+    animation: slideDown 1s var(--ease-in-out-circ) both;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-4px, 0, 0);
+  }
+}
+
+.slideLeft {
+  animation: slideLeft 1s var(--ease-in-out-circ) both;
+}
+
+.slideLeftOnHover {
+  &:hover {
+    animation: slideLeft 1s var(--ease-in-out-circ) both;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.slideRight {
+  animation: slideRight 1s var(--ease-in-out-circ) both;
+}
+
+.slideRightOnHover {
+  &:hover {
+    animation: slideRight 1s var(--ease-in-out-circ) both;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 1s var(--ease-in-cubic) both;
+}
+
+.fadeInOnHover {
+  &:hover {
+    animation: fadeIn 1s var(--ease-in-cubic) both;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation: fadeOut 1s var(--ease-out-circ) both;
+}
+
+.fadeOutOnHover {
+  &:hover {
+    animation: fadeOut 1s var(--ease-out-circ) both;
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(1.1, 1.1);
+  }
+}
+
+.zoomIn {
+  animation: zoomIn 1s var(--ease-in-cubic) both;
+}
+
+.zoomInOnHover {
+  &:hover {
+    animation: zoomIn 1s var(--ease-in-cubic) both;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1, 1);
+  }
+
+  100% {
+    transform: scale(.9, .9);
+  }
+}
+
+.zoomOut {
+  animation: zoomOut 1s var(--ease-out-cubic) both;
+}
+
+.zoomOutOnHover {
+  &:hover {
+    animation: zoomOut 1s var(--ease-out-cubic) both;
+  }
+}
+
+@keyframes heartbeat {
+  0%   { transform: scale(1);    }
+  25%  { transform: scale(.97);  }
+  35%  { transform: scale(.9);   }
+  45%  { transform: scale(1.1);  }
+  55%  { transform: scale(.9);   }
+  65%  { transform: scale(1.1);  }
+  75%  { transform: scale(1.03); }
+  100% { transform: scale(1);    }
+}
+
+.heartbeat {
+  animation: heartbeat 2s var(--ease-out-cubic) infinite;
+}
+
+.heartbeatOnHover {
+  &:hover{
+    animation: heartbeat 2s var(--ease-in-out-circ) infinite;
+  }
+}
+
+

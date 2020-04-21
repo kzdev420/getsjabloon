@@ -1,0 +1,40 @@
+      <%% content_for :page_title, @<%= singular_name %>.title # it's advised to add a separate meta_title field %>
+<%% content_for :page_description, truncate(@<%= singular_name %>.body, length: 160) # it's advised to add a separate meta_description field %>
+
+<article class="content-container">
+  <header class="text-center">
+    <p class="content-meta">
+      <time datetime=<%%= @<%= singular_name %>.created_at.to_s(:iso8601) %>><%%= @<%= singular_name %>.created_at.strftime('%e %B %Y') %></time>
+    </p>
+
+    <h1 class="content-title">
+      <%%= @<%= singular_name %>.title %>
+    </h1>
+
+    <%= "
+      <%= link_to 'edit #{singular_name}', edit_#{singular_name}_path(@#{singular_name}), class: 'inline-block ml-4 text-sm text-gray-600' if current_user&.admin? %%>" if !@skip_admin %> <%= "
+      <%= link_to 'remove #{singular_name}', #{singular_name}_path(@#{singular_name}), class: 'inline-block ml-2 text-sm text-red-400', method: :delete, data: { confirm: 'Are you sure you want to remove this #{singular_name}?' } if current_user&.admin? %%>" if !@skip_admin %>
+  </header>
+
+  <div class="content-body content-body--style-first-paragraph content-body--dropcap-second-paragraph">
+    <%= "<%= simple_format @#{singular_name}.body %%>" if @skip_markdown %>
+    <%= "<%= sanitize Kramdown::Document.new(@#{singular_name}.body).to_html %%>" if !@skip_markdown %>
+  </div>
+
+  <div class="mt-8 p-4 text-center bg-gray-800 rounded">
+    <%%# TODO: add some related call to action for your product here.
+      When visitors come from search they might be ”hot leads” %>
+    <%%= link_to "Sign up today", root_path, class: "btn btn--primary text-xl" %>
+  </div>
+  <% if !@skip_author %>
+  <div class="content-author">
+    <img src="<%%= "http://secure.gravatar.com/avatar/#{Digest::MD5::hexdigest(@<%= singular_name %>.author.email.downcase)}" %>" class="content-author__avatar" alt="avatar for <%%= @<%= singular_name %>.author.name %>">
+
+    <div class="ml-4">
+      <h4 class="content-author__name"><%%= @<%= singular_name %>.author.name %></h4>
+      <p class="content-author__bio">Here should come a bio for this author</p>
+    </div>
+  </div>
+  <% end %>
+</article>
+

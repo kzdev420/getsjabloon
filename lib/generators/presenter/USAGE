@@ -1,0 +1,14 @@
+    Description:
+  Creates a boilerplate file for a new Presenter Object. Pass it a name,
+  either CamelCase or snake_case. Optional: a list of methods as arguments.
+  To create a Presenter object within a module, pass it as either `--module NAME`
+  or `--module=NAME`.
+  The file lives, by community-convention, in `app/presenters`, or in
+  `app/presenters/{module}` if module is present.
+
+Example:
+  `rails generate presenter Modal heading body button`
+
+  This will create:
+    app/presenters/modal_presenter.rb
+

@@ -1,0 +1,32 @@
+      <%%= form_with(model: <%= singular_name %>, local: true, class: "mt-8") do |form| %>
+  <%%= render "shared/flash", flash: <%= singular_name %>.errors %>
+
+<% model_attributes = @model_attributes.delete_if{ |u| u.name == 'slug' } %>
+<% for attribute in model_attributes %>
+  <div class="field">
+    <%%= form.label :<%= attribute.name %> %>
+    <%%= form.<%= attribute.field_type %> :<%= attribute.name %>, class: "input" %>
+  </div>
+<% end %>
+
+<% if !@skip_tags %>
+  <div class="field">
+    <p class="label">Tags</p>
+    <%% if Tag.all.each do |tag| %>
+      <div class="field-centered">
+        <%%= check_box_tag "<%= singular_name %>[tag_ids][]", tag.id, form.object.tags.include?(tag), id: tag.id, class: "input-checkbox" %>
+        <%%= label_tag tag.id, tag.name, class: 'mb-0' %>
+      </div>
+    <%% end.empty? %>
+      <p class="p-2 text-red-900 bg-red-100 border-l-4 border-red-500">
+        No tags added yet. Add your first by running <code class="text-sm font-semibold">Tag.create! name: "Announcement"</code> in the rails console.
+      </p>
+    <%% end %>
+  </div>
+<% end %>
+
+  <div class="buttons">
+    <%%= form.submit class: "btn btn--primary"%>
+  </div>
+<%% end %>
+

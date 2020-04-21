@@ -1,0 +1,27 @@
+/* Components.css contains UI components */
+/* Only classes are used here. Naming should be component-specific */
+
+@import "components/accordion";
+@import "components/buttons";
+@import "components/cards";
+@import "components/checkbox-toggle";
+@import "components/comments";
+@import "components/dashboard";
+@import "components/content";
+@import "components/dropdown";
+@import "components/flash";
+@import "components/footer";
+@import "components/forms";
+@import "components/hero";
+@import "components/modals";
+@import "components/navigation";
+@import "components/skewed-components";
+@import "components/spinners";
+@import "components/tables";
+@import "components/tabs";
+@import "components/testimonials";
+@import "components/pagination";
+@import "components/pills";
+@import "components/progress-bars";
+
+

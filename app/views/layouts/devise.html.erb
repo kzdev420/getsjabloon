@@ -1,0 +1,24 @@
+<!doctype html>
+<html class="h-full">
+<head>
+  <%= render "shared/head" %>
+</head>
+
+<body class="h-full <%= body_class(yield(:body_class)) %>">
+  <%= render "shared/flash" %>
+
+  <div class="flex flex-col sm:flex-row h-full">
+    <div class="w-full sm:1/2 md:w-2/5 bg-white">
+      <%= link_to Rails.configuration.application_name, root_url, class: "block my-8 text-2xl text-center font-bold text-black hover:text-grey-600 no-underline" %>
+
+      <%= yield %>
+    </div>
+
+    <div class="hidden sm:block sm:1/2 md:w-3/5 bg-red-500">
+    </div>
+  </div>
+
+  <%= tag.div nil, data: { controller: 'sjabloon--fill-form' } if Rails.env.development? %>
+</body>
+</html>
+

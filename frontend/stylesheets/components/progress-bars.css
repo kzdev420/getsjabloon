@@ -1,0 +1,13 @@
+.progress-bar-wrapper {
+  @apply w-full;
+  @apply bg-gray-100;
+  @apply rounded-full;
+}
+
+.progress-bar {
+  @apply py-1 px-2;
+  @apply text-sm leading-none font-black text-center text-blue-100;
+  @apply bg-blue-500;
+  @apply rounded-full;
+}
+

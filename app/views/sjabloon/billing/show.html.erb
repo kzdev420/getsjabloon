@@ -1,0 +1,44 @@
+<div class="mt-16 max-w-3xl mx-auto bg-white p-4 rounded">
+  <header class="flex justify-between">
+    <h1 class="text-3xl mb-4">Billing</h1>
+  </header>
+
+  <div>
+    <h2 class="flex items-center mb-0 text-lg font-normal text-gray-700">
+      <%= @plan.nickname %>
+      <%= link_to "Change plan", billing_plans_path, class: "ml-4 text-sm" %>
+    </h2>
+
+    <p class="flex items-center mb-0">
+      <span class="inline-block mr-2 text-lg">$</span>
+      <span class="text-5xl font-extrabold"><%= @plan.price %></span>
+      <span class="inline-block ml-2 text-base font-bold text-gray-700"><%= @plan.interval %></span>
+    </p>
+
+    <%= tag.p "Currently on your trial period until #{current_payer.subscription.trial_ends_at.strftime("%d %B %Y")}.", class: "text-sm text-gray-600" if current_payer.on_trial? %>
+  </div>
+
+  <div class="mt-16 pt-8 border-t-2 border-gray-400">
+    <%= render "sjabloon/billing/update_your_card" %>
+  </div>
+
+  <div class="mt-16 pt-8 border-t-2 border-gray-400">
+    <%= render "sjabloon/billing/charges" %>
+  </div>
+
+  <div class="mt-16 mb-8 pt-8 border-t-2 border-gray-400">
+    <h2 class="flex items-center mb-2 text-lg font-normal text-gray-700">Danger zone</h2>
+
+    <% if current_payer.subscription.cancelled? %>
+      <p class="my-2">Subscription will be cancelled at <%= current_payer.subscription.ends_at.strftime("%d %B %Y") %></p>
+
+      <%= link_to "Re-subscribe", billing_path, method: :patch, class: "btn btn--primary" %>
+      <% else %>
+        <p class="my-2 mb-4">You can cancel your subscription at any time.</p>
+
+        <%= link_to "Cancel subscription", billing_path, method: :delete, class: "btn text-red-600 bg-white border-2 border-red-600" %>
+    <% end %>
+  </div>
+</div>
+
+

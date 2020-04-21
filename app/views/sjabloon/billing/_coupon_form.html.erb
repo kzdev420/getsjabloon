@@ -1,0 +1,12 @@
+<div class="flex flex-row items-start">
+  <%= form.button payment_submit_label(@plan.id), class: "btn btn--primary flex-shrink-0", data: { disable_with: "Processing…" } %>
+
+  <span class="inline-block ml-4" data-controller="sjabloon--toggle" data-sjabloon--toggle-hiddenClass="hidden" data-sjabloon--toggle-visibleClass="flex">
+    <%= tag.span "Have a coupon code?", class: "text-gray-500 underline hover:no-underline cursor-pointer", data: { target: "sjabloon--toggle.link", action: "click->sjabloon--toggle#toggle" } %>
+    <%= text_field_tag "code", nil, placeholder: "COUPON-CODE", class: "input hidden uppercase", data: { target: "sjabloon--coupon.input sjabloon--toggle.field", action: "keyup->sjabloon--coupon#checkValidity" } %>
+
+    <%= tag.span nil, class: "inline-block w-2 h-2 mr-1 rounded-full", data: { target: "sjabloon--coupon.indicator" } %>
+    <%= tag.span nil, class: "text-sm font-bold text-gray-700", data: { target: "sjabloon--coupon.status" } %>
+  </span>
+</div>
+

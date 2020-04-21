@@ -1,0 +1,25 @@
+.table {
+  @apply w-full max-w-full;
+  @apply border-collapse;
+  @apply bg-transparent;
+
+  th {
+    text-align: inherit;
+  }
+
+  td,
+  th {
+    @apply p-2;
+    @apply border-t border-gray-400;
+    @apply text-left align-top;
+  }
+
+  thead th {
+    @apply align-bottom;
+  }
+
+  tbody + tbody {
+    @apply border-t-2 border-gray-400;
+  }
+}
+

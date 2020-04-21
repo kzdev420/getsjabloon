@@ -1,0 +1,14 @@
+    Description:
+  Creates a boilerplate file for a new Query Object. Pass it a name,
+  either CamelCase or snake_case. Optional: a list of methods as arguments.
+  To create a Query object within a module, pass it as either `--module NAME`
+  or `--module=NAME`.
+  The file lives, by community-convention, in `app/queries`, or in
+  `app/queries/{module}` if module is present.
+
+Example:
+  `rails generate query MostPopularArticles --module frontpage`
+
+  This will create:
+    app/queries/frontpage/most_popular_articles_query.rb
+

@@ -1,0 +1,36 @@
+.bg-skewed {
+  @apply relative;
+
+  &:before {
+    content: '';
+    @apply absolute inset-0;
+    z-index: -1;
+    top: -98px;
+    transform: skewY(-3deg);
+  }
+}
+
+.bg-skewed--red-500:before {
+  @apply bg-red-500;
+}
+
+.bg-skewed--gray-200:before {
+  @apply bg-gray-200;
+}
+
+.bg-skewed--gray-800:before {
+  @apply bg-gray-800;
+}
+
+.skewed-component--right {
+  @screen sm {
+    transform: scale(1.2) translateX(20px) translateY(-26px) perspective(1290px) rotateY(29deg) rotateX(2deg) rotate(-2deg);
+  }
+}
+
+.skewed-component--left {
+  @screen sm {
+    transform: scale(1.2) translateX(20px) translateY(-26px) perspective(3190px) rotateY(-29deg) rotateX(4deg) rotate(1deg);
+  }
+}
+

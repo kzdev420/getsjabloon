@@ -1,0 +1,83 @@
+.flash-wrapper {
+  @apply flex flex-col justify-center items-center;
+  @apply fixed bottom-0 left-0;
+  @apply w-full;
+  @apply z-20;
+}
+
+.flash {
+  @apply py-4 px-6 mb-6 rounded;
+  @apply max-w-lg w-full;
+  @apply text-white font-bold;
+  background-color: var(--textColor);
+}
+
+.flash-modern {
+  @apply flex inline-flex items-center mb-6 p-2;
+  @apply leading-none;
+  @apply rounded-full;
+}
+
+.flash-modern--alert {
+  @apply text-red-100;
+  @apply bg-red-900;
+}
+
+.flash-modern--success {
+  @apply text-green-100;
+  @apply bg-green-900;
+}
+
+.flash-modern__badge {
+  @apply flex mr-3 px-2 py-1;
+  @apply text-xs font-bold uppercase;
+  @apply uppercase;
+  @apply rounded-full;
+}
+
+.flash-modern__badge--alert {
+  @apply text-red-100;
+  @apply bg-red-500;
+}
+
+.flash-modern__badge--success {
+  @apply text-green-100;
+  @apply bg-green-500;
+}
+
+.flash-modern__message {
+  @apply flex-auto mr-2;
+  @apply font-semibold text-left;
+}
+
+.flash-traditional {
+  @apply relative mb-6 px-4 py-3;
+  @apply border rounded;
+}
+
+.flash-traditional--success {
+  @apply text-green-600;
+  @apply bg-green-100 border-green-400;
+}
+
+.flash-traditional--alert {
+  @apply text-red-600;
+  @apply bg-red-100 border-red-400;
+}
+
+.flash-traditional__badge {
+  @apply font-bold;
+}
+
+.flash-traditional__message {
+  @apply block;
+
+  @screen sm {
+    @apply inline;
+  }
+}
+
+.flash-traditional__close {
+  @apply absolute top-0 bottom-0 right-0 px-4 py-3;
+}
+

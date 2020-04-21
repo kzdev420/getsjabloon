@@ -1,0 +1,17 @@
+We received payment for your subscription. Thanks for your business!<br/>
+<br/>
+Questions? Please reply to this email.<br/>
+<br/>
+------------------------------------<br/>
+RECEIPT - SUBSCRIPTION<br/>
+<br/>
+Amount: <%= ActionController::Base.helpers.number_to_currency(@charge.amount / 100.0) %><br/>
+<br/>
+Charged to: <%= @charge.charged_to %><br/>
+Transaction ID: <%= @charge.processor_id %><br/>
+<p>Date: <%= @charge.created_at.strftime("%d %B %Y") %></p>
+
+<p>&mdash; The <%= AppConfig.billing["business_name"] %> Team<br/>
+<%= simple_format AppConfig.billing["business_address"] %>
+------------------------------------</p>
+

@@ -1,0 +1,60 @@
+<div class="mx-auto my-16 max-w-4xl bg-white">
+  <%= form_with(url: billing_url, local: true, class: "card p-4",
+                data: {
+                  controller: "sjabloon--stripe",
+                  target: "sjabloon--stripe.form",
+                  action: "sjabloon--stripe#submit",
+                  sjabloon__stripe_public_key: Rails.application.credentials.dig(:stripe, :public_key),
+                  sjabloon__stripe_style: '{
+                    "base": {
+                      "fontFamiliy": "system-ui",
+                      "fontSize": "16px",
+                      "color": "#3d4852",
+                      "fontSmoothing": "antialiased",
+                      "::placeholder": {
+                        "color": "#4e5c69"
+                      },
+                      "invalid": {
+                        "color": "#e5424d",
+                        ":focus": {
+                          "color": "#303238"
+                        }
+                      }
+                    }
+                  }'
+                }) do |form| %>
+
+    <div class="flex flex-col sm:flex-row" data-controller="<%= @any_active_coupons_available ? "sjabloon--coupon" : nil %>" data-sjabloon--coupon-url="/coupons">
+      <div class="w-full sm:w-2/5 sm:pr-4">
+        <h2 class="flex items-center mb-0 text-base font-normal text-gray-700">
+          <%= @plan.nickname %>
+          <%= link_to "Change plan", pricing_path, class: "ml-4 text-sm" %>
+        </h2>
+
+        <p class="flex items-center">
+          <span class="inline-block mr-2 text-lg">$</span>
+          <%= tag.span @plan.price, class: "text-5xl font-extrabold", data: { target: "sjabloon--coupon.amount" } %>
+          <%= tag.span nil, class: "text-5xl font-extrabold", data: { target: "sjabloon--coupon.discounted_amount" } %>
+          <span class="inline-block ml-2 text-base font-bold text-gray-700"><%= @plan.interval %></span>
+        </p>
+
+        <%= tag.p "You will be on a trial plan first and be charged in #{@plan.trial_period_days} days.", class: "text-sm text-gray-600" if @plan.has_trial_period? %>
+      </div>
+
+      <div class="w-full sm:w-3/5">
+        <div class="field">
+          <%= form.hidden_field :plan_id, value: @plan.processor_id, class: "input", required: true %>
+
+          <label for="card-element">Credit or debit card</label>
+
+          <div data-target="sjabloon--stripe.card" data-action="change->sjabloon--stripe#change" class="input"> </div>
+
+          <div data-target="sjabloon--stripe.errors" role="alert"></div>
+        </div>
+
+        <%= render "sjabloon/billing/coupon_form", form: form if @any_active_coupons_available %>
+      </div>
+    </div>
+  <% end %>
+</div>
+

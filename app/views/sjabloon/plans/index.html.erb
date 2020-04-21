@@ -1,0 +1,39 @@
+<div class="my-16 max-w-2xl mx-auto">
+  <header class="flex justify-between">
+    <h1 class="text-3xl mb-4"><%= link_to "Billing", billing_path %> / Plans</h1>
+  </header>
+
+  <div class="flex flex-col sm:flex-row">
+    <div class="w-full sm:w-1/3 sm:pr-4">
+      <h2 class="flex items-center mb-0 text-lg font-normal text-gray-700">
+        <%= @plan.nickname %>
+      </h2>
+
+      <p class="flex items-center mb-0">
+        <span class="inline-block mr-2 text-lg">$</span>
+        <%= tag.span @plan.price, class: "text-5xl font-extrabold", data: { target: "coupon.amount" } %>
+        <%= tag.span nil, class: "text-5xl font-extrabold", data: { target: "coupon.discounted_amount" } %>
+        <span class="inline-block ml-2 text-base font-bold text-gray-700"><%= @plan.interval %></span>
+      </p>
+    </div>
+
+    <div class="w-full sm:w-2/3">
+      <% @plans.each do |plan| %>
+        <div class="flex items-center py-4 px-2 border-b-2 border-gray-200">
+          <h3 class="w-1/3 mb-0">
+            <%= plan.nickname %>
+          </h3>
+
+          <p class="w-1/3 mb-0 px-4">
+            <%= "$#{plan.price}" %> <%= tag.span "/#{plan.interval}", class: "text-gray-600" %>
+          </p>
+
+          <p class="w-1/3 mb-0 text-right">
+            <%= change_plan_button(current_payer, plan.id) %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

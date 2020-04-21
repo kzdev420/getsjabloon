@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="w-full sm:h-full">
+<head>
+  <%= render "shared/head" %>
+</head>
+
+<body class="sm:h-full bg-gray-100 pb-16 <%= body_class(yield(:body_class)) %>">
+  <%= render "shared/flash" %>
+
+  <div class="dashboard">
+    <%= render "layouts/dashboard/navigation" %>
+
+    <div class="dashboard-wrapper">
+      <%= render "layouts/dashboard/secondary_navigation" %>
+
+      <div class="dashboard-content px-4">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+  <%= render "sjabloon/policies/consent_modal" %>
+</body>
+</html>
+

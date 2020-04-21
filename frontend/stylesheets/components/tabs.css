@@ -1,0 +1,92 @@
+.tabs-wrapper {
+  @apply flex flex-wrap;
+}
+
+.tabs {
+  @apply flex flex-row w-full;
+
+  @screen sm {
+    @apply flex-col w-1/3;
+  }
+}
+
+.tab {
+  @apply flex w-1/3 px-4 py-4 rounded cursor-pointer;
+
+  @screen sm {
+    @apply w-full py-8;
+  }
+}
+
+.tab--light {
+  @apply bg-gray-200;
+
+  &:hover {
+    @apply bg-gray-300;
+  }
+}
+
+.tab--dark {
+  @apply bg-gray-800;
+
+  &:hover {
+    @apply bg-gray-700;
+  }
+}
+
+.tab--active-dark {
+  @apply bg-gray-900;
+}
+
+.tab--active-light {
+  @apply bg-gray-400;
+}
+
+.tab__heading {
+  @apply flex items-center justify-between w-full text-xl font-semibold;
+}
+
+.tab__heading--light {
+  @apply text-gray-800;
+}
+
+.tab__heading--dark {
+  @apply text-gray-200;
+}
+
+.tab__icon {
+  @apply w-6 h-6 fill-current;
+}
+
+.panel {
+  @apply w-full mt-4;
+
+  @screen sm {
+    @apply w-2/3 pl-12;
+  }
+}
+
+.panel--light {
+  @apply text-gray-700;
+}
+
+.panel--dark {
+  @apply text-gray-400;
+}
+
+.panel__heading {
+  @apply my-2 text-2xl font-semibold;
+}
+
+.panel__heading--light {
+  @apply text-gray-800;
+}
+
+.panel__heading--dark {
+  @apply text-gray-200;
+}
+
+.panel__content {
+  @apply text-lg;
+}
+

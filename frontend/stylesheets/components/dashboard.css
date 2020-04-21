@@ -1,0 +1,100 @@
+.dashboard {
+  @apply flex flex-col-reverse;
+
+  @screen sm {
+    @apply flex-row;
+  }
+}
+
+.dashboard-nav {
+  @apply fixed bottom-0 left-0 flex-shrink-0;
+  @apply w-full;
+  @apply bg-gray-100;
+  @aaply text-gray-100;
+
+  @screen sm {
+    @apply relative w-64;
+  }
+}
+
+.dashboard-nav__logo {
+  @apply hidden;
+
+  @screen sm {
+    @apply flex items-center flex-shrink-0 p-4;
+    @apply font-semibold text-gray-400;
+    @apply bg-gray-900;
+  }
+}
+
+.dashboard-nav-items {
+  @apply flex flex-row;
+  @apply border-t-2 border-gray-300;
+  @apply overflow-x-auto;
+
+  @screen sm {
+    @apply flex-col;
+    @apply mt-2 pr-4;
+    @apply border-t-0;
+  }
+}
+
+.dashboard-nav-link {
+  @apply block px-4 py-2;
+  @apply font-semibold text-gray-700;
+  @apply rounded;
+
+  &:hover {
+    @apply text-gray-600
+  }
+}
+
+.dashboard-nav-link--active {
+  @apply bg-gray-300;
+}
+
+.dashboard-nav-link--toggle {
+  @apply flex items-center w-full;
+}
+
+.dashboard-nav-link__icon {
+  @apply w-5 h-5 ml-2;
+  @apply text-gray-600 fill-current;
+  transition: transform .2s ease-in-out;
+}
+
+.dashboard-nav-link__icon--toggled {
+  transform: rotate(-180deg);
+  transition: transform 0.2s ease-out;
+}
+
+.dashboard-subnav-items {
+  @apply hidden pr-4 pl-4;
+}
+
+.dashboard-subnav-items--active {
+  @apply block;
+}
+
+.dashboard-subnav-item {
+  @apply whitespace-no-wrap;
+}
+
+.dashboard-subnav-link {
+  @apply block py-1;
+  @apply text-sm font-semibold text-gray-600;
+
+  &:hover {
+    @apply text-gray-500;
+  }
+}
+
+.dashboard-wrapper {
+  @apply w-full;
+}
+
+.dashboard-nav-secondary {
+  @apply flex items-center justify-between py-2 px-4;
+  @apply bg-gray-800;
+}
+

@@ -1,0 +1,28 @@
+<nav class="nav<%= !current_page?(root_path) ? " nav--is-scrolling" : nil %>" data-controller="sjabloon--navigation" data-target="sjabloon--navigation.component" data-action="scroll@window->sjabloon--navigation#onScroll">
+  <div class="nav__content">
+    <%= link_to Rails.configuration.application_name, root_path, class: "nav__logo" %>
+
+    <div class="nav__items" data-target="sjabloon--navigation.items">
+      <div class="sm:flex sm:ml-10">
+        <%= link_to "Features", "#", class: "nav__item nav__link" %>
+        <%= link_to "Pricing", "#", class: "nav__item nav__link" %>
+        <%= link_to "Customers", "#", class: "nav__item nav__link" %>
+      </div>
+
+      <div class="sm:flex items-center">
+        <% if user_signed_in? %>
+      <%= link_to "Edit Account", edit_user_registration_path, class: "nav__item nav__link" %>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav__item nav__link" %>
+    <% else %>
+      <%= link_to "Log In", new_user_session_path, class: "nav__item nav__link" %>
+      <%= link_to "Start Free Trial", signup_path, class: "nav__item btn btn--primary-outline" %>
+    <% end %>
+      </div>
+    </div>
+
+    <span role="link" class="navigation__toggle" data-target="sjabloon--navigation.toggle" data-action="click->sjabloon--navigation#toggle">menu</span>
+  </div>
+</nav>
+
+
+

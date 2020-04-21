@@ -1,0 +1,22 @@
+      <%% content_for :page_title, @tag.name %>
+<%% content_for :page_description, "A collection of #{pluralize(@resources.size, 'post')} about #{@tag.name.downcase}." %>
+
+<div class="content-container">
+  <header>
+    <h1 class="content-title"><%%= @tag.name %></h1>
+
+    <p class="content-meta">
+      A collection of <%%= pluralize(@resources.size, '<%= singular_name %>') %>
+    </p>
+  </header>
+
+  <div class="mt-8">
+    <%% if @resources.each do |resource| %>
+      <%%= render "#{@resource_plural}/#{@resource_singular}", resource: resource %>
+    <%% end.empty? %>
+      <p>No <%= plural_name %> yet.</p>
+    <%% end %>
+  </div>
+</div>
+
+

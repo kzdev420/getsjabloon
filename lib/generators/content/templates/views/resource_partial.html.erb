@@ -1,0 +1,10 @@
+      <%%= link_to resource, class: 'block mb-4 pb-4 border-b border-gray-300' do %>
+  <h2 class="text-xl font-extrabold">
+    <%%= resource.title %>
+  </h2>
+
+  <p class="mt-1 text-lg">
+    <%%= truncate(resource.body, length: 160) %>
+  </p>
+<%% end %>
+

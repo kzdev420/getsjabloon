@@ -1,0 +1,6 @@
+      <p class="my-2">
+  <%% tags.each do |item| %>
+    <%%= link_to item.name, tag_<%= plural_name %>_path(item), class: "inline-block px-3 py-1 text-sm font-semibold leading-none lowercase text-gray-600 bg-gray-300 rounded-full hover:bg-gray-400 hover:text-gray-700" %>
+  <%% end %>
+</p>
+

@@ -1,0 +1,54 @@
+<footer class="footer-wrapper">
+  <div class="footer container max-w-5xl mx-auto">
+    <div class="footer__items">
+      <%= link_to Rails.configuration.application_name, root_path, class: "text-sm uppercase tracking-wider leading-none text-gray-600 font-bold" %>
+      <p class="mt-2 text-sm text-gray-600">© <%= Time.zone.now.strftime("%Y") %></p>
+    </div>
+
+    <ul class="footer__items">
+      <%= tag.h6 "Company", class: "footer__item footer__heading" %>
+
+      <li class="footer__item">
+        <%= link_to "About", about_path, class: "footer__link" %>
+      </li>
+      <li class="footer__item">
+        <%= link_to "Pricing", pricing_path, class: "footer__link" %>
+      </li>
+      <li class="footer__item">
+        <%= link_to "Team", "#", class: "footer__link" %>
+      </li>
+    </ul>
+
+    <ul class="footer__items">
+      <%= tag.h6 "Features", class: "footer__item footer__heading" %>
+
+      <li class="footer__item">
+        <%= link_to "Feature 1", "#", class: "footer__link" %>
+      </li>
+      <li class="footer__item">
+        <%= link_to "Feature 2", "#", class: "footer__link" %>
+      </li>
+      <li class="footer__item">
+        <%= link_to "Feature 3", "#", class: "footer__link" %>
+      </li>
+    </ul>
+
+    <ul class="footer__items">
+      <%= tag.h6 "Support", class: "footer__item footer__heading" %>
+
+      <li class="footer__item">
+        <%= link_to "Contact", contact_path, class: "footer__link" %>
+      </li>
+      <li class="footer__item">
+        <%= link_to "Helpdesk", "#", class: "footer__link" %>
+      </li>
+      <li class="footer__item">
+        <%= link_to "Terms", policy_path("terms"), class: "footer__link" %> and
+        <%= link_to "privacy", policy_path("privacy"), class: "footer__link" %>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+

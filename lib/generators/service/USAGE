@@ -1,0 +1,14 @@
+    Description:
+  Creates a boilerplate file for a new Service Object. Pass it a name,
+  either CamelCase or snake_case. Optional: a list of methods as arguments.
+  To create a Service object within a module, pass it as either `--module NAME`
+  or `--module=NAME`.
+  The file lives, by community-convention, in `app/services`, or in
+  `app/services/{module}` if module is present.
+
+Example:
+  `rails generate service SyncWithStripe push pull --module Stripe`
+
+  This will create:
+    app/services/stripe/sync_with_stripe_service.rb
+

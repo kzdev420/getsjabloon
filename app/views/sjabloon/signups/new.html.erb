@@ -1,0 +1,37 @@
+<% content_for :page_title, "Create your #{Rails.configuration.application_name} account." %>
+<% content_for :page_description, "Create your #{Rails.configuration.application_name} account to get access today." %>
+
+<div class="mt-4 max-w-lg mx-auto">
+  <%= form_with url: signups_path, local: true, class: "p-4" do |form| %>
+    <%= devise_error_messages!(resource: @signup) %>
+
+    <h1 class="mt-2 mb-6 text-xl">Create an account</h1>
+
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, placeholder: "Your full name", class: "input" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.email_field :email, placeholder: "Your email", autocomplete: "email", class: "input" %>
+    </div>
+
+    <div class="field">
+      <%= form.label :password %>
+      <%= form.password_field :password, placeholder: "•••••••••••••", autocomplete: "new-password", class: "input" %>
+    </div>
+
+    <%= render "sjabloon/signups/subscribe_checkbox", form: form %>
+    <%= render "sjabloon/signups/consent_checkboxes", form: form %>
+
+    <div class="actions">
+      <%= form.submit "Create an account", class: "btn btn--primary" %>
+    </div>
+  <% end %>
+
+  <p class="mt-4 text-sm text-center text-gray-600">
+    Already have any account? <%= link_to "Log in", new_user_session_path %>
+  </p>
+</div>
+

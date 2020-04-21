@@ -1,0 +1,67 @@
+.card {
+  @apply rounded shadow-lg;
+}
+
+.card--light {
+  @apply bg-white;
+}
+
+.card--dark {
+  @apply bg-black text-white;
+}
+
+.card--horizontal {
+  @apply flex flex-col;
+
+  @screen sm {
+    @apply flex-row;
+  }
+}
+
+.card__image {
+  @apply flex-none h-64;
+  @apply bg-center bg-cover;
+  @apply rounded-t;
+
+  @screen sm {
+    @apply h-auto w-48;
+    @apply rounded-l rounded-r-none;
+  }
+}
+
+.card__avatar {
+  @apply block w-16 h-16 mx-auto mt-4;
+  @apply rounded-full;
+  object-fit: cover;
+
+  @screen sm {
+    @apply w-24 h-24 m-4;
+  }
+}
+
+.card__content {
+  @apply flex-col;
+  @apply p-4;
+}
+
+.profile-card {
+}
+
+.profile-card__cover-image {
+  @apply block w-full h-64;
+  @apply bg-center bg-cover;
+  @apply rounded-t;
+}
+
+.profile-card__avatar-wrapper {
+  @apply flex justify-center;
+}
+
+.profile-card__avatar {
+  @apply block w-32 h-32 -mt-16;
+  @apply border-4 border-white;
+  @apply rounded-full;
+  object-fit: cover;
+}
+
+

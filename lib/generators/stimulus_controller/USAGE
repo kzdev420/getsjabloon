@@ -1,0 +1,14 @@
+    Description:
+  Creates a boilerplate file for a new Stimulus Controller. Pass it a name,
+  either CamelCase or snake_case. Optional: a list of functions as arguments.
+  To create a Stimulus Controller within a module, pass it as either `--module NAME`
+  or `--module=NAME`.
+  The file lives in `frotend/controllers`, or in
+  `frontend/controllers/{module}` if module is present.
+
+Example:
+  `rails generate stimulus_controller Modal open close`
+
+  This will create:
+    frontend/controllers/modal_controler.js
+
