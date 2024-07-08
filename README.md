@@ -183,3 +183,5 @@ Sjabloon comes packaged with multiple custom generators to create Form Objects, 
 To have a smooth deploy, be sure to add the contents of `config/master.key` to your environment variables as `RAILS_MASTER_KEY`. It's really important to never share this `RAILS_MASTER_KEY` in any shared repository or public space! By default it's excluded from Git, through the `.gitignore` file.
 
 Don't know where to deploy your app? I can highly recommend the combo [DigitalOcean](https://m.do.co/c/5ca1e8d17563) and [Hatchbox](https://hatchbox.io/?via=sjabloon). Other hosting services (that can be used with Hatchbox) are: Linode and Vultr. If you are planning to have just one app running [Render](https://render.com?via=getsjabloon.com) is a solid (fairly-new) choice. Another solid, but often more expensive, choice is still [Heroku](https://www.heroku.com).
+
+Hello world!
