@@ -19,7 +19,7 @@ gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 
 gem 'storext', '~> 3.1'
 gem 'redis', '~> 4.1', '>= 4.1.3'
-gem 'image_processing', '~> 1.9', '>= 1.9.3'
+gem 'image_processing', '~> 1.12'
 
 
 gem 'stripe', '~> 5.10'
