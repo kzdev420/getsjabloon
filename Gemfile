@@ -13,7 +13,7 @@ gem 'sidekiq', '~> 6.0', '>= 6.0.3'
 gem 'premailer-rails', '~> 1.10', '>= 1.10.3'
 
 gem 'devise', '~> 4.7', '>= 4.7.1'
-gem 'devise_masquerade', '~> 1.2'
+gem 'devise_masquerade', '~> 1.3'
 gem 'friendly_id', '~> 5.3'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 
